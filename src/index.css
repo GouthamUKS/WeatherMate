@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 210 100% 96%;
+    --foreground: 220 20% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 94%;
+    --secondary-foreground: 220 20% 20%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 35 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 92%;
+    --ring: 210 100% 50%;
+
+    --radius: 1rem;
+
+    /* Weather gradients */
+    --gradient-sunny: linear-gradient(180deg, hsl(200, 100%, 65%) 0%, hsl(210, 100%, 75%) 50%, hsl(35, 100%, 80%) 100%);
+    --gradient-cloudy: linear-gradient(180deg, hsl(210, 20%, 70%) 0%, hsl(210, 30%, 80%) 50%, hsl(210, 40%, 88%) 100%);
+    --gradient-rainy: linear-gradient(180deg, hsl(220, 30%, 40%) 0%, hsl(215, 35%, 55%) 50%, hsl(210, 40%, 70%) 100%);
+    --gradient-night: linear-gradient(180deg, hsl(230, 50%, 15%) 0%, hsl(225, 45%, 25%) 50%, hsl(220, 40%, 35%) 100%);
+    --gradient-sunset: linear-gradient(180deg, hsl(25, 100%, 60%) 0%, hsl(35, 100%, 70%) 30%, hsl(200, 80%, 70%) 100%);
+
+    /* Glass effect */
+    --glass-bg: hsla(0, 0%, 100%, 0.25);
+    --glass-border: hsla(0, 0%, 100%, 0.3);
+    --glass-shadow: 0 8px 32px hsla(220, 50%, 20%, 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 225 40% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 225 35% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 225 35% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 60%;
+    --primary-foreground: 220 40% 10%;
+
+    --secondary: 225 30% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 225 25% 20%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 35 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 225 25% 20%;
+    --input: 225 25% 20%;
+    --ring: 210 100% 60%;
+
+    --glass-bg: hsla(225, 30%, 15%, 0.4);
+    --glass-border: hsla(0, 0%, 100%, 0.1);
+    --glass-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.3);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .weather-gradient-sunny {
+    background: var(--gradient-sunny);
+  }
+
+  .weather-gradient-cloudy {
+    background: var(--gradient-cloudy);
+  }
+
+  .weather-gradient-rainy {
+    background: var(--gradient-rainy);
+  }
+
+  .weather-gradient-night {
+    background: var(--gradient-night);
+  }
+
+  .weather-gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 10px hsla(0, 0%, 0%, 0.15);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
