@@ -34,6 +34,14 @@ export const WeatherApp = () => {
     console.log("Location selected:", location);
     setLoading(true);
     const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
+    
+    console.log("API Key loaded:", apiKey ? "Yes" : "No");
+    
+    if (!apiKey) {
+      alert("API key not configured. Please set VITE_OPENWEATHER_API_KEY in your environment.");
+      setLoading(false);
+      return;
+    }
 
     try {
       // 1. Fetch 5-Day Forecast
